@@ -12,4 +12,10 @@ class PrototypesController < ApplicationController
 
   def edit
   end
+
+  private
+
+  def prototype_params
+    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  end
 end
